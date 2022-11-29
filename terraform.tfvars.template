@@ -1,0 +1,63 @@
+##################################################################################
+# This file contains variables for configuration of Workload VPC 
+##################################################################################
+
+##################################################################################
+# General configuration, apply to all resources
+##################################################################################
+# IBM Cloud API Key that is authorized to provision all of the resources in this terraform
+# type = string
+# ibmcloud_api_key =
+
+
+# Region to all resources. List all available regions with: ibmcloud regions
+# type = string
+# region = "ca-tor"
+
+# Prefix to use in names of resources
+prefix = "demo"
+
+# Name of an ssh key in the region that will be used when provisioning the Fortigate servers
+ssh_key_name = 
+
+# Key Protect or HPCS instance.  Will create a key ring and key for encrypting Fortigate
+# Volumes and Flow Log bucket.
+# type = string
+kms_guid = 
+
+# Key Protect or HPCS instance.  Will create a key ring and key for encrypting Fortigate
+# Volumes and Flow Log bucket.
+# type = string
+kms_crn = 
+
+# If you provide the crn of a COS instance, then a bucket will be created in it to store
+# Flow Logs for the VPC.  A service to service authorization will also be created for
+# VPC infrastructure can write the flow logs to COS.
+# type = string
+# default = null
+# cos_crn = 
+
+# Set to false if you do not want to connect the vpc to an existing transit gateway.
+# type = string
+# default = true
+connect_to_transitgateway = false
+
+# If you want to connect the edge VPC to Transit Gateway, provide the GUID of the Transit Gateway
+# transit_gateway_id = 
+
+# IPs of team members that will be allowlisted
+# type = list(string)
+# default = []
+fortigate_allowed_cidrs = []
+
+
+# Address prefixes for the edge vpc
+# type        = list(string)
+# default     = ["10.70.0.0/18","10.80.0.0/18", "10.90.0.0/18"]
+# vpc_cidrs = 
+
+
+# CIDR for the public, internal, heartbeat and mgmt interfaces
+# type    = list(string)
+# default = ["10.70.10.0/24","10.70.20.0/24","10.70.30.0/24","10.70.40.0/24"]
+# fortigate_zone1_subnet_cidrs =
