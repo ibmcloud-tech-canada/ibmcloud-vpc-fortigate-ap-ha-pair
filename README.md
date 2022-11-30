@@ -6,7 +6,7 @@
 
 The Fortigate AP HA Pair is an offering in the [IBM Cloud catalog](https://cloud.ibm.com/catalog/content/ibm-fortigate-AP-HA-terraform-deploy-5dd3e4ba-c94b-43ab-b416-c1c313479cec-global)
 
-This terraform provisions all of the pre-requisite infrastructure required for the deployment of the catalog offering as well as provisioning the HA Pair.  
+This terraform provisions all of the pre-requisite infrastructure required for the deployment of the catalog offering as well as provisioning 1, 2 or 3 HA Pairs.  You specify which zones within the MZR that you want a pair.  You can provision up to three pairs, one per zone. 
 
 1. One Edge VPC in the selected MZR
 1. For each selected zone, 4 subnets (public, internal, ha and management)
@@ -24,6 +24,7 @@ The Fortigate AP HA module is based on the terraform [here](https://github.com/f
 * Resource Group variable was added and is used with all resources so that they don't go into the default resource group
 * A Service ID and API Key are created to authorize the IBM SDN Connector, instead of using the IBM API Key used to run the terraform
 * IP Spoofing is enabled for the internal interface
+
 
 You can view a diagram of the Fortigate deployment in the README of the git repository above, or [in the local module](./modules/fortigate-ha/README.md).
 
