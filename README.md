@@ -4,9 +4,9 @@
 
 **IMPORTANT**: This terraform is provided as an example, without support or guarantee.  Comments and PRs are welcome.  
 
-This terraform provisions up to three Fortigate Active-Passive HA pairs (one per zone) in a region on IBM Cloud.  
+The Fortigate AP HA Pair is an offering in the [IBM Cloud catalog](https://cloud.ibm.com/catalog/content/ibm-fortigate-AP-HA-terraform-deploy-5dd3e4ba-c94b-43ab-b416-c1c313479cec-global)
 
-The terraform also provisions all of the infrastructure required for the deployment.  
+This terraform provisions all of the pre-requisite infrastructure required for the deployment of the catalog offering as well as provisioning the HA Pair.  
 
 1. One Edge VPC in the selected MZR
 1. For each selected zone, 4 subnets (public, internal, ha and management)
@@ -16,10 +16,9 @@ The terraform also provisions all of the infrastructure required for the deploym
 1. Key ring and keys for encrypting the boot and data volumes of the Fortigate servers.
 1. Network Flow Logs for the VPC (optional)
 1. Connection to Transit Gateway (optional)
-1. Service ID and Key for the Fortigate IBM SDN Connector
 
 
-**IMPORTANT:** The Fortigate AP HA module is based on the terraform [here](https://github.com/fortinet/ibm-fortigate-AP-HA-terraform-deploy) with the following modifications:
+The Fortigate AP HA module is based on the terraform [here](https://github.com/fortinet/ibm-fortigate-AP-HA-terraform-deploy) (which backs the catalog offering) with the following modifications:
 
 * Log and boot volumes are encrypted with provided key
 * Resource Group variable was added and is used with all resources so that they don't go into the default resource group
